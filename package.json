@@ -19,5 +19,19 @@
     "@babel/core": "^7.8.6",
     "babel-preset-expo": "~8.1.0"
   },
-  "private": true
+  "private": true,
+  "name": "food-delivery-react-native",
+  "description": "Food delivery app use react native",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HROKA/food-delivery-react-native.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HROKA/food-delivery-react-native/issues"
+  },
+  "homepage": "https://github.com/HROKA/food-delivery-react-native#readme"
 }
