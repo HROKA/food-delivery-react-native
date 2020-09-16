@@ -5,6 +5,6 @@ const { manifest } = Constants;
 const proxy =
   typeof manifest.packagerOpts === `object` && manifest.packagerOpts.dev
     ? manifest.debuggerHost.split(`:`).shift().concat(`:5000`)
-    : `localhost`;
+    : `https://food-app-delivery.herokuapp.com/`;
 
-export default `http://${proxy}/api/v1`;
+export default `http://${proxy}/api/v1/`;
