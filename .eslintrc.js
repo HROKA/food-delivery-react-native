@@ -19,6 +19,7 @@ module.exports = {
   },
   extends: ['eslint:recommended', 'plugin:react/recommended', 'airbnb-base'],
   rules: {
+    quotes: ['error', 'single', { allowTemplateLiterals: true }],
     'linebreak-style': 0,
     'arrow-body-style': ['error', 'as-needed'],
     'no-use-before-define': ['error', { variables: false }],
