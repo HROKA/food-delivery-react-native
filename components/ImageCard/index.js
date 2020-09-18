@@ -1,19 +1,18 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import styles from './style';
+import Card from './Image';
 
-const ImageCard = ({ title, imgSrc }) => (
-  <View style={[styles.element]}>
-    <Image
-      source={{
-        uri: imgSrc,
-      }}
-      style={styles.imageBackground}
-    />
-    <View style={styles.title}>
-      <Text style={styles.titleText}>{title}</Text>
-    </View>
+const VerticalSlider = ({ data }) => (
+  <View style={styles.VerticalSlider}>
+    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+      {data.map(({ title, imgSrc }) => (
+        <>
+          <Card title={title} imgSrc={imgSrc} />
+        </>
+      ))}
+    </ScrollView>
   </View>
 );
 
-export default ImageCard;
+export default VerticalSlider;

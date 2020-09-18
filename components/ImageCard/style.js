@@ -5,6 +5,8 @@ const styles = StyleSheet.create({
   element: {
     width: mainStyle.deviceHight / 6,
     height: mainStyle.deviceHight / 6,
+    marginEnd: 15,
+    marginStart: 15,
   },
   imageBackground: {
     borderRadius: 12,
@@ -26,6 +28,9 @@ const styles = StyleSheet.create({
   titleText: {
     color: 'white',
     margin: 5,
+  },
+  VerticalSlider: {
+    height: mainStyle.deviceHight / 6,
   },
 });
 
