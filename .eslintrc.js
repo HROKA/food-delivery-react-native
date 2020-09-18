@@ -29,6 +29,7 @@ module.exports = {
     'react/prop-types': 0,
     'import/no-unresolved': 0,
     'import/extensions': 0,
+    quotes: ['error', 'single', { allowTemplateLiterals: true }],
     'linebreak-style': 0,
     'arrow-body-style': ['error', 'as-needed'],
     'no-use-before-define': ['error', { variables: false }],
