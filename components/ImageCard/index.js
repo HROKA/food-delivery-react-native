@@ -6,10 +6,8 @@ import Card from './Image';
 const VerticalSlider = ({ data }) => (
   <View style={styles.VerticalSlider}>
     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-      {data.map(({ title, imgSrc }) => (
-        <>
-          <Card title={title} imgSrc={imgSrc} />
-        </>
+      {data.map(({ title, imgSrc }, index) => (
+        <Card title={title} imgSrc={imgSrc} key={title + index} />
       ))}
     </ScrollView>
   </View>
