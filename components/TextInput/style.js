@@ -23,4 +23,9 @@ export default StyleSheet.create({
     height: 50,
     borderWidth: 0,
   },
+  eye: {
+    position: 'absolute',
+    top: '30%',
+    right: '1%',
+  },
 });
