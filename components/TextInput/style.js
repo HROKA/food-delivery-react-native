@@ -1,7 +1,26 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  span: {},
-  spanImg: {},
-  textField: { height: 40, borderColor: 'gray', borderWidth: 1 },
+  span: {
+    width: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  spanImg: {
+    height: '100%',
+    width: '18%',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#EA4533',
+  },
+  textField: {
+    backgroundColor: '#EFEFEF',
+    padding: 10,
+    width: '85%',
+    height: 50,
+    borderWidth: 0,
+  },
 });
