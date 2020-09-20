@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import mainStyle from '../../style';
 
 const style = StyleSheet.create({
   btnContainer: {
@@ -6,10 +7,14 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    width: '90%',
-    padding: 20,
-    borderWidth: 1,
+    backgroundColor: 'transparent',
+    padding: 15,
+    borderRadius: 5,
+    borderColor: mainStyle.secondaryColor,
     alignItems: 'center',
+  },
+  text: {
+    fontWeight: 'bold',
   },
 });
 

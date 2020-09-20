@@ -1,20 +1,30 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import styles from './style';
+import mainStyle from '../../style';
 
-export default function index({ solid, text }) {
+export default function index({ solid, text, onPress, width }) {
   return (
     <View style={styles.btnContainer}>
       <TouchableOpacity
         style={[
           styles.button,
           {
-            backgroundColor: solid ? '#F04732' : 'transparent',
+            backgroundColor: solid && mainStyle.primaryColor,
+            borderWidth: solid ? 0 : 0.5,
+            width: width || '90%',
           },
         ]}
-        onPress={() => console.log('pressed')}
+        onPress={onPress}
       >
-        <Text style={{ color: solid ? 'white' : 'black' }}>{text}</Text>
+        <Text
+          style={[
+            styles.text,
+            { color: solid ? 'white' : mainStyle.secondaryColor },
+          ]}
+        >
+          {text}
+        </Text>
       </TouchableOpacity>
     </View>
   );
