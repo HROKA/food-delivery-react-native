@@ -6,16 +6,8 @@ import styles from './style';
 // add what ever icons beside text input from this link https://fontawesome.com/icons?d=gallery
 // search about icon before use it https://oblador.github.io/react-native-vector-icons/
 
-const renderIcon = (
-  icon = 'user',
-  size = 30,
-  color = 'white',
-) => (
-    <FontAwesome
-      name={icon}
-      size={size}
-      color={color}
-    />
+const renderIcon = ({ icon = 'user', size = 30, color = 'white' }) => (
+  <FontAwesome name={icon} size={size} color={color} />
 );
 
 export default function index({
@@ -24,6 +16,7 @@ export default function index({
   placeholder,
   keyboardType,
   icon,
+  maxLength,
 }) {
   const [secure, setSecure] = useState(true);
 
@@ -38,14 +31,19 @@ export default function index({
         placeholder={placeholder}
         keyboardType={keyboardType || 'default'}
         secureTextEntry={placeholder === 'password' && secure}
+        maxLength={maxLength}
       />
-      {placeholder === 'password' && <View style={styles.eye}>
-      <FontAwesome style={{ paddingRight: 15 }}
-        name={secure ? 'eye' : 'eye-slash'}
-        size={20} color='gray'
-        onPress={() => setSecure(!secure)} />
+      {placeholder === 'password' && (
+        <View style={styles.eye}>
+          <FontAwesome
+            style={{ paddingRight: 15 }}
+            name={secure ? 'eye' : 'eye-slash'}
+            size={20}
+            color='gray'
+            onPress={() => setSecure(!secure)}
+          />
         </View>
-      }
+      )}
     </View>
   );
 }

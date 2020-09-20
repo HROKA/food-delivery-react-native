@@ -5,7 +5,7 @@ export default StyleSheet.create({
     width: '80%',
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
   },
   spanImg: {
     height: '100%',
