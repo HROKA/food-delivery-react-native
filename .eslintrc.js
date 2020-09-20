@@ -19,6 +19,7 @@ module.exports = {
   },
   extends: ['eslint:recommended', 'plugin:react/recommended', 'airbnb-base'],
   rules: {
+    'object-curly-newline': 0,
     'react/self-closing-comp': [
       'error',
       {
