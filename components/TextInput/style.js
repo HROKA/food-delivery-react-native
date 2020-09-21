@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from '../../Utils/Constants';
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   span: {
     width: '80%',
     justifyContent: 'center',
@@ -14,7 +15,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#EA4533',
+    backgroundColor: Colors.primaryColor,
   },
   textField: {
     backgroundColor: '#EFEFEF',
@@ -29,3 +30,5 @@ export default StyleSheet.create({
     right: '1%',
   },
 });
+
+export default styles;

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import mainStyle from '../../style';
+import { Colors } from '../../Utils/Constants';
 
 const style = StyleSheet.create({
   btnContainer: {
@@ -10,7 +10,7 @@ const style = StyleSheet.create({
     backgroundColor: 'transparent',
     padding: 15,
     borderRadius: 5,
-    borderColor: mainStyle.secondaryColor,
+    borderColor: Colors.secondaryColor,
     alignItems: 'center',
   },
   text: {
