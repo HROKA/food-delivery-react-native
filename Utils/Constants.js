@@ -17,8 +17,6 @@ const Colors = {
   secondaryColor,
 };
 const mainStyle = {
-  primaryColor,
-  secondaryColor,
   fontFamily: '',
   deviceWidth: width,
   deviceHight: height,
