@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text } from 'react-native';
 import styles from './style';
 import mainStyle from '../../style';
 
-export default function index({ solid, text, onPress, width }) {
+export default function index({ solid, text, onPress, width, style }) {
   return (
     <View style={styles.btnContainer}>
       <TouchableOpacity
@@ -14,6 +14,7 @@ export default function index({ solid, text, onPress, width }) {
             borderWidth: solid ? 0 : 0.5,
             width: width || '90%',
           },
+          style,
         ]}
         onPress={onPress}
       >
