@@ -10,9 +10,7 @@ const fetchData = async (url, body, method) => {
         .catch(() => 'Error get data');
 
     default:
-      return axios[method](api.concat(url), body)
-        .then(({ data }) => data)
-        .catch(() => `Error ${method} data`);
+      return axios[method](api.concat(url), body).then(({ data }) => data);
   }
 };
 

@@ -7,7 +7,7 @@ import styles from './style';
 // search about icon before use it https://oblador.github.io/react-native-vector-icons/
 
 const renderIcon = ({ icon = 'user', size = 30, color = 'white' }) => (
-  <FontAwesome name={icon} size={size} color={color} />
+  <FontAwesome name={icon} size={size} color={color} solid />
 );
 
 export default function index({
@@ -30,10 +30,10 @@ export default function index({
         value={value}
         placeholder={placeholder}
         keyboardType={keyboardType || 'default'}
-        secureTextEntry={placeholder === 'password' && secure}
+        secureTextEntry={placeholder === 'كلمة المرور' && secure}
         maxLength={maxLength}
       />
-      {placeholder === 'password' && (
+      {placeholder === 'كلمة المرور' && (
         <View style={styles.eye}>
           <FontAwesome
             style={{ paddingRight: 15 }}

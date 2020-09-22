@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primaryColor,
   },
   textField: {
+    textAlign: 'right',
     backgroundColor: '#EFEFEF',
     padding: 10,
     width: '85%',
