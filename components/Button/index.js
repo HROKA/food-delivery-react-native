@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import styles from './style';
-import mainStyle from '../../style';
+import { mainStyle, Colors } from '../../Utils/Constants';
 
 export default function index({ solid, text, onPress, width, style }) {
   return (
@@ -10,7 +10,7 @@ export default function index({ solid, text, onPress, width, style }) {
         style={[
           styles.button,
           {
-            backgroundColor: solid && mainStyle.primaryColor,
+            backgroundColor: solid && Colors.primaryColor,
             borderWidth: solid ? 0 : 0.5,
             width: width || '90%',
           },

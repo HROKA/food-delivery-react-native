@@ -21,9 +21,9 @@ export default function index() {
   return (
     <ImageBackground source={background} style={styles.container}>
       <ImageBackground source={headerImg} style={styles.headerImg}>
+        <Image source={logo} style={styles.logo} />
         <Text style={styles.headerText}> مرحبا</Text>
       </ImageBackground>
-      <Image source={logo} style={styles.logo} />
       <TextInput
         value={mobileNumber}
         onChangeText={(value) => setMobileNumber(value)}
