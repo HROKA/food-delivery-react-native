@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
-import {
-  Text,
-  Image,
-  ImageBackground,
-  View,
-  TouchableOpacity,
-  ToastAndroid,
-} from 'react-native';
+import { Text, Image, ImageBackground, View, ToastAndroid } from 'react-native';
 import { useHistory } from 'react-router-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome5';
-import styles from './style';
 import TextInput from '../../components/TextInput';
 import Button from '../../components/Button';
+import FacebookLogin from './FacebookLogin';
+
 import API from '../../Utils/fetchData';
 import storage from '../../Utils/secureStorage';
 import background from '../../assets/background.png';
 import headerImg from '../../assets/header.png';
+
+import styles from './style';
+
 // import logo from '../../assets/logo.png';
 
 export default function index() {
@@ -53,6 +49,7 @@ export default function index() {
         onChangeText={(value) => setMobileNumber(value)}
         placeholder='رقم الهاتف'
         maxLength={10}
+        keyboardType={'phone-pad'}
         icon
       />
       <TextInput
@@ -70,10 +67,7 @@ export default function index() {
         <Text> أو </Text>
         <View style={styles.line} />
       </View>
-      <TouchableOpacity style={styles.facebookBtn}>
-        <FontAwesome name={'facebook-f'} size={20} color='white' />
-        <Text style={styles.facebookText}>تسجيل بالفيسبوك</Text>
-      </TouchableOpacity>
+      <FacebookLogin />
       <Button text='حساب جديد' style={styles.bottomButton} />
     </ImageBackground>
   );

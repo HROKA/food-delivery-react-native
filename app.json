@@ -19,6 +19,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "facebookScheme": "fb3516655361731728"
   }
 }
