@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TouchableOpacity, Text, ToastAndroid } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
-import axios from 'axios';
 import * as Facebook from 'expo-facebook';
+import { useHistory } from 'react-router-native';
+import axios from 'axios';
+import API from '../../Utils/fetchData';
+import storage from '../../Utils/secureStorage';
 
 import styles from './style';
 
 export default function FacebookLogin() {
-  const [isLoggedIn, setLoggedIn] = useState(false);
-  const [userData, setUserData] = useState(null);
+  const history = useHistory();
 
   const loginByFacebook = async () => {
     try {
@@ -25,8 +27,13 @@ export default function FacebookLogin() {
         const { data } = await axios.get(
           `https://graph.facebook.com/me?access_token=${token}&fields=id,name,email,picture.height(500)`
         );
-
-        console.log(data);
+        const { role } = await API(
+          'auth/client/sign-in/facebook',
+          data,
+          'post'
+        );
+        storage.storeSecure(role);
+        history.push('home');
       } else throw new Error();
     } catch ({ message }) {
       ToastAndroid.show(

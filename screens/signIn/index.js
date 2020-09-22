@@ -22,12 +22,12 @@ export default function index() {
   const signIn = async () => {
     // api post request
     try {
-      const data = await API(
+      const { role } = await API(
         'auth/client/sign-in',
         { mobileNumber, password },
         'post'
       );
-      storage.storeSecure(data);
+      storage.storeSecure(role);
       history.push('home');
     } catch (err) {
       ToastAndroid.show(
