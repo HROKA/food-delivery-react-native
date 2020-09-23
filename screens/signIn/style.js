@@ -19,8 +19,14 @@ export default StyleSheet.create({
     color: 'white',
     fontSize: 30,
     fontWeight: 'bold',
+    marginTop: 20
   },
-  logo: {},
+  logo: {
+    position: 'absolute',
+    top: '15%',
+    width: 110,
+    height: 110,
+  },
   containerBtn: {
     justifyContent: 'center',
     width: '100%',

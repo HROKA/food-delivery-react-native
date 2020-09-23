@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import { Text, Image, ImageBackground, View, ToastAndroid } from 'react-native';
 import { useHistory } from 'react-router-native';
+
 import TextInput from '../../components/TextInput';
 import Button from '../../components/Button';
 import FacebookLogin from './FacebookLogin';
-
 import API from '../../Utils/fetchData';
 import storage from '../../Utils/secureStorage';
 import background from '../../assets/background.png';
 import headerImg from '../../assets/header.png';
+import logo from '../../assets/logo.png';
 
 import styles from './style';
-
-// import logo from '../../assets/logo.png';
 
 const LoginPage = () => {
   const [mobileNumber, setMobileNumber] = useState();
@@ -41,8 +40,8 @@ const LoginPage = () => {
   return (
     <ImageBackground source={background} style={styles.container}>
       <ImageBackground source={headerImg} style={styles.headerImg}>
-        {/* <Image source={logo} style={styles.logo} /> */}
-        <Text style={styles.headerText}> مرحبا</Text>
+        <Image source={logo} style={styles.logo} />
+        <Text style={styles.headerText}> أهلاً بك من جديد</Text>
       </ImageBackground>
       <TextInput
         value={mobileNumber}
@@ -56,7 +55,6 @@ const LoginPage = () => {
         value={password}
         onChangeText={(value) => setPassword(value)}
         placeholder='كلمة المرور'
-        maxLength={10}
         icon={{ icon: 'key' }}
       />
       <View style={styles.containerBtn}>

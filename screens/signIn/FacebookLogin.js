@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, Alert } from 'react-native';
+import { TouchableOpacity, Text, ToastAndroid } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import * as Facebook from 'expo-facebook';
 import { useHistory } from 'react-router-native';
@@ -35,7 +35,11 @@ const FacebookLogin = () => {
       } else throw new Error();
     } catch ({ message }) {
       // eslint-disable-next-line no-alert
-      Alert.alert(` لايمكن تسجيل الدخول باستخدام فيسبوك ! ${message}`);
+      ToastAndroid.show(
+        ` لايمكن تسجيل الدخول باستخدام فيسبوك ! ${message}`,
+        ToastAndroid.LONG,
+        ToastAndroid.BOTTOM
+      );
     }
   };
 
@@ -45,7 +49,7 @@ const FacebookLogin = () => {
       onPress={() => loginByFacebook()}
     >
       <FontAwesome name={'facebook-f'} size={20} color='white' />
-      <Text style={styles.facebookText}>تسجيل بالفيسبوك</Text>
+      <Text style={styles.facebookText}> تسجيل بالفيسبوك </Text>
     </TouchableOpacity>
   );
 };
