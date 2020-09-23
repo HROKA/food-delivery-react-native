@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     width: '80%',
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
   },
   spanImg: {
     height: '100%',
@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primaryColor,
   },
   textField: {
+    textAlign: 'right',
     backgroundColor: '#EFEFEF',
     padding: 10,
     width: '85%',
