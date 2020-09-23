@@ -1,24 +1,25 @@
 import React from 'react';
-import { TouchableOpacity, Text, ToastAndroid } from 'react-native';
+import { TouchableOpacity, Text, Alert } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import * as Facebook from 'expo-facebook';
 import { useHistory } from 'react-router-native';
 import axios from 'axios';
 import API from '../../Utils/fetchData';
 import storage from '../../Utils/secureStorage';
+import { APP_ID } from '../../Utils/Constants';
 
 import styles from './style';
 
-export default function FacebookLogin() {
+const FacebookLogin = () => {
   const history = useHistory();
 
+  // facebook login
   const loginByFacebook = async () => {
     try {
-      const appId = '3516655361731728';
-      await Facebook.initializeAsync(appId);
+      await Facebook.initializeAsync(APP_ID);
       const permissions = ['public_profile', 'email'];
       const { type, token } = await Facebook.logInWithReadPermissionsAsync(
-        appId,
+        APP_ID,
         {
           permissions,
         }
@@ -27,22 +28,17 @@ export default function FacebookLogin() {
         const { data } = await axios.get(
           `https://graph.facebook.com/me?access_token=${token}&fields=id,name,email,picture.height(500)`
         );
-        const { role } = await API(
-          'auth/client/sign-in/facebook',
-          data,
-          'post'
-        );
+        // api post request
+        const { role } = await API('auth/client/signin/facebook', data, 'post');
         storage.storeSecure(role);
         history.push('home');
       } else throw new Error();
     } catch ({ message }) {
-      ToastAndroid.show(
-        ' لايمكن تسجيل الدخول باستخدام فيسبوك !',
-        ToastAndroid.LONG,
-        ToastAndroid.BOTTOM
-      );
+      // eslint-disable-next-line no-alert
+      Alert.alert(` لايمكن تسجيل الدخول باستخدام فيسبوك ! ${message}`);
     }
   };
+
   return (
     <TouchableOpacity
       style={styles.facebookBtn}
@@ -52,4 +48,6 @@ export default function FacebookLogin() {
       <Text style={styles.facebookText}>تسجيل بالفيسبوك</Text>
     </TouchableOpacity>
   );
-}
+};
+
+export default FacebookLogin;

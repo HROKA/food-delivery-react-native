@@ -14,7 +14,7 @@ import styles from './style';
 
 // import logo from '../../assets/logo.png';
 
-export default function index() {
+const LoginPage = () => {
   const [mobileNumber, setMobileNumber] = useState();
   const [password, setPassword] = useState();
   const history = useHistory();
@@ -23,7 +23,7 @@ export default function index() {
     // api post request
     try {
       const { role } = await API(
-        'auth/client/sign-in',
+        'auth/client/signin',
         { mobileNumber, password },
         'post'
       );
@@ -68,7 +68,13 @@ export default function index() {
         <View style={styles.line} />
       </View>
       <FacebookLogin />
-      <Button text='حساب جديد' style={styles.bottomButton} />
+      <Button
+        text='حساب جديد'
+        style={styles.bottomButton}
+        onPress={() => history.push('/signup')}
+      />
     </ImageBackground>
   );
-}
+};
+
+export default LoginPage;
