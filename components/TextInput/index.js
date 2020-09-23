@@ -10,14 +10,15 @@ const renderIcon = ({ icon = 'user', size = 30, color = 'white' }) => (
   <FontAwesome name={icon} size={size} color={color} solid />
 );
 
-export default function index({
+const textInput = ({
   onChangeText,
   value,
   placeholder,
   keyboardType,
   icon,
   maxLength,
-}) {
+}) => {
+  // this secure to hide and show the password
   const [secure, setSecure] = useState(true);
 
   return (
@@ -46,4 +47,5 @@ export default function index({
       )}
     </View>
   );
-}
+};
+export default textInput;
