@@ -2,9 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { useHistory } from 'react-router-native';
-import {
-  SafeAreaView, TouchableOpacity, View,
-} from 'react-native';
+import { SafeAreaView, TouchableOpacity, View } from 'react-native';
 import { Transitioning, Transition } from 'react-native-reanimated';
 import Profile from './icons/Profile';
 import Search from './icons/Search';
@@ -13,14 +11,14 @@ import Favorites from './icons/Favorites';
 import Orders from './icons/Orders';
 import styles from './style';
 
-const TabBar = () => {
-  const [active, setActive] = useState(0);
+const TabBar = ({ tab }) => {
+  const [active, setActive] = useState(tab);
   const history = useHistory();
   const transition = <Transition.Change interpolation='easeOut' />;
   const ref = useRef();
 
   const tabs = [
-    { icon: <Home active={active === 0} />, route: '/' },
+    { icon: <Home active={active === 0} />, route: '/home' },
     { icon: <Search active={active === 1} />, route: '/search' },
     { icon: <Favorites active={active === 2} />, route: '/favorites' },
     { icon: <Orders active={active === 3} />, route: '/orders' },
@@ -34,10 +32,13 @@ const TabBar = () => {
         // https://docs.expo.io/versions/latest/sdk/reanimated/
         ref={ref}
         style={styles.centerAll}
-        transition={transition}>
+        transition={transition}
+      >
         <View style={styles.tabs}>
           {tabs.map(({ icon, route }, index) => (
-            <TouchableOpacity key={index} style={styles.tab}
+            <TouchableOpacity
+              key={index}
+              style={styles.tab}
               onPress={() => {
                 setActive(index);
                 history.push(route);

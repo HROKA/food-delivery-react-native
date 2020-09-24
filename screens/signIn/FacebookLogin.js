@@ -10,7 +10,7 @@ import { APP_ID } from '../../Utils/Constants';
 
 import styles from './style';
 
-const FacebookLogin = () => {
+const FacebookLogin = ({ setClientData }) => {
   const history = useHistory();
 
   // facebook login
@@ -29,8 +29,14 @@ const FacebookLogin = () => {
           `https://graph.facebook.com/me?access_token=${token}&fields=id,name,email,picture.height(500)`
         );
         // api post request
-        const { role } = await API('auth/client/signin/facebook', data, 'post');
-        storage.storeSecure(role);
+        // eslint-disable-next-line camelcase
+        const { CLIENT_TOKEN, client_Data } = await API(
+          'auth/client/signin/facebook',
+          data,
+          'post'
+        );
+        setClientData(client_Data);
+        storage.storeSecure(CLIENT_TOKEN);
         history.push('home');
       } else throw new Error();
     } catch ({ message }) {

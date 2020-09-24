@@ -6,6 +6,9 @@ export default {
   },
   getStoreSecure: async () => {
     const data = await SecureStore.getItemAsync('token');
-    return data;
+    return JSON.parse(data);
+  },
+  deleteStoreSecure: async () => {
+    await SecureStore.deleteItemAsync('token');
   },
 };
