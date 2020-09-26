@@ -1,4 +1,4 @@
-import { Dimensions, PixelRatio, Platform } from 'react-native';
+import { Dimensions, PixelRatio, Platform, StyleSheet } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -22,7 +22,16 @@ const Colors = {
   secondaryColor,
 };
 const mainStyle = {
-  fontFamily: '',
+  typography: StyleSheet.create({
+    heder: {
+      fontSize: 15,
+      color: Colors.primaryColor,
+    },
+    paragraph: {
+      fontSize: 12,
+      color: Colors.secondaryColor,
+    },
+  }),
   deviceWidth: width,
   deviceHight: height,
 };

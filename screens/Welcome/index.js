@@ -6,7 +6,6 @@ import API from '../../Utils/fetchData';
 
 import styles from './style';
 
-secureStorage.deleteStoreSecure();
 const WelcomeScreen = ({ setClientData }) => {
   const [clientToken, setClientToken] = useState();
   const history = useHistory();
